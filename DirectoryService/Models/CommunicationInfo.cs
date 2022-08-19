@@ -13,6 +13,7 @@ namespace DirectoryService.Models
         [JsonIgnore]
         public Guid Person_UUID { get; set; }
 
+        [JsonIgnore]
         public Person? Person { get; set; }
 
         public CommunicationTypes ConnectionType { get; set; }

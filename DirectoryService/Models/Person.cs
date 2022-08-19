@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace DirectoryService.Models
 {
@@ -13,6 +14,7 @@ namespace DirectoryService.Models
 
         public string? Company { get; set; }
 
+        [JsonIgnore]
         public List<CommunicationInfo>? CommunicationInfos { get; set; }
     }
 }
