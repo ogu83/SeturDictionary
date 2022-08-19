@@ -63,10 +63,10 @@ namespace DirectoryService.Controllers
         [HttpPost(Name = "DeleteCommunicationInfo")]
         public void DeleteCommunicationInfo(int commInfoId)
         {
-            var commInfo = _context.ConnectionInfos?.FirstOrDefault(x=>x.Id == commInfoId);
+            var commInfo = _context.CommunicationInfo?.FirstOrDefault(x=>x.Id == commInfoId);
             if (commInfo == null)
                 throw new ArgumentNullException("No such commInfo");
-            _context.ConnectionInfos?.Remove(commInfo);
+            _context.CommunicationInfo?.Remove(commInfo);
             _context.SaveChanges();
         }
     }

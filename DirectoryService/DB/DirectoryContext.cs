@@ -11,7 +11,7 @@ public class DirectoryContext : DbContext
         
     }
 
-    public DbSet<CommunicationInfo>? ConnectionInfos { get; set; }
+    public DbSet<CommunicationInfo>? CommunicationInfo { get; set; }
     public DbSet<Person>? Person { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
