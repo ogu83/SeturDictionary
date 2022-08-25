@@ -3,12 +3,12 @@ using System.Text.Json.Serialization;
 
 namespace ReportService.Models
 {
-    public class Report 
+    public class Report
     {
-        public enum ReportState { Requested, Queued, Completed }
+        public enum ReportState { Preparing, Completed }
 
         [Key]
-        public int Id { get; set; }
+        public Guid UUID { get; set; }
 
         public ReportState State { get; set; }
 

@@ -3,6 +3,7 @@ using System;
 using DirectoryService.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ReportService.Migrations
 {
     [DbContext(typeof(ReportContext))]
-    partial class ReportContextModelSnapshot : ModelSnapshot
+    [Migration("20220825225137_AddUUIDToReports")]
+    partial class AddUUIDToReports
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
