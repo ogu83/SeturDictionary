@@ -1,5 +1,5 @@
+using ReportService.Models;
 using Microsoft.EntityFrameworkCore;
-// using ReportService.Models;
 
 namespace DirectoryService.Data;
 
@@ -11,16 +11,18 @@ public class ReportContext : DbContext
         
     }
 
-    // public DbSet<CommunicationInfo>? CommunicationInfo { get; set; }
-    // public DbSet<Person>? Person { get; set; }
+     public DbSet<Report>? Report { get; set; }
+     public DbSet<ReportDetails>? ReportDetails { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // modelBuilder.Entity<CommunicationInfo>().ToTable("CommunicationInfo");
-        // modelBuilder.Entity<Person>().ToTable("Person")
-        //                             .HasMany<CommunicationInfo>(x=>x.CommunicationInfos)
-        //                             .WithOne(x=>x.Person)
-        //                             .HasForeignKey(x=>x.Person_UUID);
-
+        modelBuilder.Entity<Report>().ToTable("Report")
+                                     .HasOne<ReportDetails>(x=>x.Details)
+                                     .WithOne(x=>x.Report)
+                                     .HasForeignKey<ReportDetails>(x=>x.Report_Id);
+        modelBuilder.Entity<ReportDetails>().ToTable("ReportDetails")
+                                     .HasOne<Report>(x=>x.Report)
+                                     .WithOne(x=>x.Details)
+                                     .HasForeignKey<Report>(x=>x.Details_Id);
     }
 }
