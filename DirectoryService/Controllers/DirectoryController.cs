@@ -69,5 +69,15 @@ namespace DirectoryService.Controllers
             _context.CommunicationInfo?.Remove(commInfo);
             _context.SaveChanges();
         }
+
+        [HttpGet(Name == "GetLocationReport")]
+        public CountModel GetLocationReport(string location) 
+        {
+            var retval = new CountModel();
+            retval.Location = location;
+            retval.PersonCount = _context.Person?.Count(p => p.CommunicationInfos.Any(c => c.ConnectionType == CommunicationInfo.CommunicationTypes.Location && c.Content == location));
+            retval.PhoneNumberCount = _context.Person?.Count(p => p.CommunicationInfos.Any(c=> c.ConnectionType == CommunicationInfo.CommunicationTypes.PhoneNumber) && p.CommunicationInfos.Any(c => c.ConnectionType == CommunicationInfo.CommunicationTypes.Location && c.Content == location));
+            return retval;
+        }
     }
 }

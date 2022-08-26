@@ -15,6 +15,6 @@ namespace DirectoryService.Models
         public string? Company { get; set; }
 
         [JsonIgnore]
-        public List<CommunicationInfo>? CommunicationInfos { get; set; }
+        public List<CommunicationInfo> CommunicationInfos { get; set; } = new List<CommunicationInfo>();
     }
 }
