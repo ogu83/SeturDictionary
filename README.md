@@ -42,6 +42,7 @@ git clone https://github.com/ogu83/SeturDictionary.git
 
 ```bash
 cd DirectoryService
+docker build -t directoryservice .
 docker run -it --rm -p 3000:80 --name directoryservicecontainer directoryservice
 ```
 
@@ -49,5 +50,6 @@ docker run -it --rm -p 3000:80 --name directoryservicecontainer directoryservice
 
 ```bash
 cd ReportService
+docker build -t reportservice .
 docker run -it --rm -p 3001:80 --name reportservicecontainer reportservice
 ```
