@@ -70,7 +70,7 @@ namespace DirectoryService.Controllers
             _context.SaveChanges();
         }
 
-        [HttpGet(Name == "GetLocationReport")]
+        [HttpGet(Name = "GetLocationReport")]
         public CountModel GetLocationReport(string location) 
         {
             var retval = new CountModel();
